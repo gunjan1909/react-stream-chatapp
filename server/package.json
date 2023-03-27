@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^8.2.1",
     "dotenv": "^16.0.3",
-    "fastify": "^4.15.0"
+    "fastify": "^4.15.0",
+    "stream-chat": "^8.4.1"
   },
   "devDependencies": {
     "@types/node": "^18.15.9",

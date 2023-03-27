@@ -1,14 +1,28 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import { AuthLayout } from "./pages/layouts/AuthLayout";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 
 export const router = createBrowserRouter([
   {
-    element: <AuthLayout />,
+    element: <ContextWrapper />,
     children: [
-      { path: "login", element: <Login /> },
-      { path: "signup", element: <Signup /> },
+      {
+        element: <AuthLayout />,
+        children: [
+          { path: "login", element: <Login /> },
+          { path: "signup", element: <Signup /> },
+        ],
+      },
     ],
   },
 ]);
+
+function ContextWrapper() {
+  return (
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
+  );
+}
