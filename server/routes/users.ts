@@ -27,4 +27,31 @@ export async function userRoutes(app: FastifyInstance) {
     }
     streamChat.upsertUser({ id, name, image });
   });
+
+  app.post<{
+    Body: {
+      id: string;
+    };
+  }>("/login", async (req, res) => {
+    const { id } = req.body;
+    if (id == null || id === "") {
+      return res.status(400).send();
+    }
+
+    const {
+      users: [user],
+    } = await streamChat.queryUsers({ id });
+    if (user == null) return res.status(401).send();
+
+    const token = streamChat.createToken(id);
+
+    return {
+      token,
+      user: {
+        name: user.name,
+        id: user.id,
+        image: user.image,
+      },
+    };
+  });
 }

@@ -1,25 +1,20 @@
-/*import { FormEvent, useRef } from "react";
+import { FormEvent, useRef } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { useAuth } from "../context/AuthContext";
 
 export function Login() {
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const usernameRef = useRef<HTMLInputElement>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
-  const imageUrlRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (signup.isLoading) return;
+    if (login.isLoading) return;
 
     const username = usernameRef.current?.value;
-    const name = nameRef.current?.value;
-    const imageUrl = imageUrlRef.current?.value;
-    if (username == null || username === "" || name == null || name === "")
-      return;
+    if (username == null || username === "") return;
 
-    signup.mutate({ id: username, name, image: imageUrl });
+    login.mutate(username);
   }
 
   return (
@@ -33,20 +28,21 @@ export function Login() {
         <Input id="userName" required ref={usernameRef} />
 
         <Button
-          disabled={signup.isLoading}
+          disabled={login.isLoading}
           type="submit"
           className="col-span-full"
         >
-          {signup.isLoading ? "Loading..." : "Sign Up"}
+          {login.isLoading ? "Loading..." : "Log In"}
         </Button>
       </form>
     </>
   );
 }
-*/ export function Login() {
+/* export function Login() {
   return (
     <div>
       <h1>Login</h1>
     </div>
   );
 }
+*/
