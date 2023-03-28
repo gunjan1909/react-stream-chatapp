@@ -7,6 +7,7 @@ const streamChat = StreamChat.getInstance(
 );
 
 export async function userRoutes(app: FastifyInstance) {
+  //signup route
   app.post<{
     Body: {
       id: string;
@@ -25,9 +26,10 @@ export async function userRoutes(app: FastifyInstance) {
         .status(400)
         .send(`User ID is already in use by ${existingUser.users[0].name}`);
     }
-    streamChat.upsertUser({ id, name, image });
+    await streamChat.upsertUser({ id, name, image });
   });
 
+  //login route
   app.post<{
     Body: {
       id: string;

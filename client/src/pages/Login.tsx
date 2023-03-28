@@ -1,11 +1,14 @@
 import { FormEvent, useRef } from "react";
+import { Navigate } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { useAuth } from "../context/AuthContext";
 
 export function Login() {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
   const usernameRef = useRef<HTMLInputElement>(null);
+
+  if (user !== null) return <Navigate to="/" />;
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -38,11 +41,3 @@ export function Login() {
     </>
   );
 }
-/* export function Login() {
-  return (
-    <div>
-      <h1>Login</h1>
-    </div>
-  );
-}
-*/
