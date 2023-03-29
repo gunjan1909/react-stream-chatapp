@@ -51,6 +51,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
       navigate("/login");
     },
   });
+
+  /* const login = useMutation({
+    mutationFn: async (id: string) => {
+      //mutationFn:  (id: string) => {
+      const res = await axios.post(`${import.meta.env.VITE_SERVER_URL}/login`, {
+        id,
+      });
+      return res.data as { token: string; user: User };
+    },
+    onSuccess(data) {
+      setUser(data.user);
+      setToken(data.token);
+    },
+  });*/
   const login = useMutation({
     mutationFn: (id: string) => {
       return axios
@@ -65,9 +79,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     },
   });
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (token == null || user == null) return;
-    const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY);
+    const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY!);
 
     if (chat.tokenManager.token === token && chat.userID === user.id) return;
 
@@ -81,6 +95,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
       insInterrupted = true;
       setStreamChat(undefined);
       connectPromise.then(() => chat.disconnectUser());
+    };
+  }, [token, user]);*/
+  useEffect(() => {
+    if (token == null || user == null) return;
+    const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY!);
+
+    if (chat.tokenManager.token === token && chat.userID === user.id) return;
+
+    let isInterrupted = false;
+    const connectPromise = chat.connectUser(user, token).then(() => {
+      if (isInterrupted) return;
+      setStreamChat(chat);
+    });
+
+    return () => {
+      isInterrupted = true;
+      setStreamChat(undefined);
+
+      connectPromise.then(() => {
+        chat.disconnectUser();
+      });
     };
   }, [token, user]);
 

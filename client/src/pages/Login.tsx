@@ -8,7 +8,7 @@ export function Login() {
   const { login, user } = useAuth();
   const usernameRef = useRef<HTMLInputElement>(null);
 
-  if (user !== null) return <Navigate to="/" />;
+  if (user != null) return <Navigate to="/" />;
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
