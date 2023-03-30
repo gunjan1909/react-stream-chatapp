@@ -13,6 +13,7 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { StreamChat } from "stream-chat";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type AuthContext = {
   signup: UseMutationResult<AxiosResponse, unknown, User>;
@@ -33,14 +34,20 @@ export function useAuth() {
   return useContext(Context) as AuthContext;
 }
 
+//make sure that user property is required
+export function useLoggedInAuth() {
+  return useContext(Context) as AuthContext &
+    Required<Pick<AuthContext, "user">>;
+}
+
 type AuthProviderProps = {
   children: ReactNode;
 };
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const navigate = useNavigate();
-  const [user, setUser] = useState<User>();
-  const [token, setToken] = useState<string>();
+  const [user, setUser] = useLocalStorage<User>("user");
+  const [token, setToken] = useLocalStorage<string>("token");
   const [streamChat, setStreamChat] = useState<StreamChat>();
 
   const signup = useMutation({
