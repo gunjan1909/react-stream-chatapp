@@ -1,11 +1,13 @@
 import { FastifyInstance } from "fastify";
 import { StreamChat } from "stream-chat";
 
+//creating the stream chat application ig
 const streamChat = StreamChat.getInstance(
   process.env.STREAM_API_KEY!,
   process.env.STREAM_PRIVATE_API_KEY!
 );
 
+// map token and userid
 const TOKEN_USER_ID_MAP = new Map<string, string>();
 
 export async function userRoutes(app: FastifyInstance) {

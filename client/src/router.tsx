@@ -9,6 +9,7 @@ import { NewChannel } from "./pages/channel/new";
 
 export const router = createBrowserRouter([
   {
+    //the main login signup use streamchat logout mutation function for backend connection and passing the state wrapping the entire application,  context from authprovider authcontext
     element: <ContextWrapper />,
     children: [
       {
@@ -18,12 +19,14 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: <Home /> },
           {
+            //creating a new channel for chat
             path: "/channel",
             children: [{ path: "new", element: <NewChannel /> }],
           },
         ],
       },
       {
+        //login and signup page layout
         element: <AuthLayout />,
         children: [
           { path: "login", element: <Login /> },

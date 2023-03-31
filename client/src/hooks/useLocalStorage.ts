@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+//custom hook same as useState just stores the states in localstorage
 export function useLocalStorage<T>(
   key: string,
   initialValue?: T | undefined | (() => T | undefined)

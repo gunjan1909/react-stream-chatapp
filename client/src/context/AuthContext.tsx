@@ -1,8 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import {
-  UseMutationOptions,
-  UseMutationResult,
-} from "@tanstack/react-query/build/lib/types";
+import { UseMutationResult } from "@tanstack/react-query/build/lib/types";
 import axios, { AxiosResponse } from "axios";
 import {
   createContext,
@@ -15,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { StreamChat } from "stream-chat";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
+// type for authcontext
 type AuthContext = {
   signup: UseMutationResult<AxiosResponse, unknown, User>;
   login: UseMutationResult<{ token: string; user: User }, unknown, string>;
@@ -23,6 +21,7 @@ type AuthContext = {
   logout: UseMutationResult<AxiosResponse, unknown, void>;
 };
 
+//type for the User
 type User = {
   id: string;
   name: string;
@@ -35,7 +34,7 @@ export function useAuth() {
   return useContext(Context) as AuthContext;
 }
 
-//make sure that user property is required
+//make sure that user property is required else same as useAuth()
 export function useLoggedInAuth() {
   return useContext(Context) as AuthContext &
     Required<Pick<AuthContext, "user">>;
@@ -89,26 +88,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     },
   });
 
-  /*useEffect(() => {
-    if (token == null || user == null) return;
-    const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY!);
-
-    if (chat.tokenManager.token === token && chat.userID === user.id) return;
-
-    let insInterrupted = false;
-    const connectPromise = chat.connectUser(user, token).then(() => {
-      if (insInterrupted) return;
-      setStreamChat(chat);
-    });
-
-    return () => {
-      insInterrupted = true;
-      setStreamChat(undefined);
-      connectPromise.then(() => chat.disconnectUser());
-    };
-  }, [token, user]);*/
-
   useEffect(() => {
+    console.log("AuthContext Useeffect");
     if (token == null || user == null) return;
     const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY!);
 

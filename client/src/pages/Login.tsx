@@ -8,6 +8,7 @@ export function Login() {
   const { login, user } = useAuth();
   const usernameRef = useRef<HTMLInputElement>(null);
 
+  //go to home page if logged in user exists
   if (user != null) return <Navigate to="/" />;
 
   function handleSubmit(e: FormEvent) {
@@ -17,6 +18,7 @@ export function Login() {
     const username = usernameRef.current?.value;
     if (username == null || username === "") return;
 
+    //mutate from authcontext, log in the user and redirect to home page and create a token
     login.mutate(username);
   }
 
