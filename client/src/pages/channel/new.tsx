@@ -11,7 +11,9 @@ import { useNavigate } from "react-router-dom";
 
 export function NewChannel() {
   const navigate = useNavigate();
+
   const { streamChat, user } = useLoggedInAuth();
+
   const createChannel = useMutation({
     mutationFn: ({
       name,
@@ -41,6 +43,7 @@ export function NewChannel() {
   const imageUrlRef = useRef<HTMLInputElement>(null);
   const memberIdsRef =
     useRef<SelectInstance<{ label: string; value: string }>>(null);
+
   const users = useQuery({
     queryKey: ["stream", "users"],
     queryFn: () =>
