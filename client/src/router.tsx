@@ -5,6 +5,7 @@ import { AuthLayout } from "./pages/layouts/AuthLayout";
 import { RootLayout } from "./pages/layouts/RootLayout";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
+import { NewChannel } from "./pages/channel/new";
 
 export const router = createBrowserRouter([
   {
@@ -12,12 +13,13 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        //layout for home and other channel route, will redirect to login page if no user exist/logged in
         element: <RootLayout />,
         children: [
           { index: true, element: <Home /> },
           {
             path: "/channel",
-            children: [{ path: "new", element: <h1>New Channel</h1> }],
+            children: [{ path: "new", element: <NewChannel /> }],
           },
         ],
       },
