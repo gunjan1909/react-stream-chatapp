@@ -2,7 +2,7 @@
 
 ### Description:
 
-Simple chat application made in Typescript using Vite React Nodejs and Stream and Fastify.
+Simple channel based chat application made in Typescript using Vite React Nodejs and Stream and Fastify.
 
 NOTE:- Stream API is used which is only free for few days.
 
@@ -76,3 +76,4 @@ has the routes for client, what all element and layout to show at the particular
 
 - Add proper comments in all files for understanding the workflow and review project structure
 - Renew env variables and api keys with new stream account once expired
+- Test entire application with multiple users
