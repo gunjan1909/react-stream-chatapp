@@ -12,7 +12,7 @@ NOTE:- Stream API is used which is only free for few days.
 
 - React, React Dom
 - React Router Dom
-- React Query
+- Tanstack React Query
 - Tailwind
 - Vite
 - Stream Chat
@@ -97,3 +97,4 @@ Has the routes for client, what all element and layout to show at the particular
 - Renew env variables and api keys with new stream account once expired
 - Test entire application with multiple users and media/images
 - Work on deployment
+- Review Tanstack query docs

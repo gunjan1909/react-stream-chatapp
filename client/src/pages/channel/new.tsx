@@ -45,6 +45,8 @@ export function NewChannel() {
     useRef<SelectInstance<{ label: string; value: string }>>(null);
 
   const users = useQuery({
+    //querykey is just the unique identifier that says what the api route is. This will cache the results in the background, and refetch when available
+    //this key does all the refetching caching and validation
     queryKey: ["stream", "users"],
     queryFn: () =>
       streamChat!.queryUsers({ id: { $ne: user.id } }, { name: 1 }),
