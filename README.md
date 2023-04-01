@@ -28,17 +28,18 @@ NOTE:- Stream API is used which is only free for few days.
 
 ### Get Started:
 
-- 1. clone the repository using : `git clone https://github.com/gunjan1909/react-stream-chatapp.git`
-- 2. cd into the directory: `cd react-stream-chatapp`
-- 3. cd into the client and server separately for running the backend server and frontend client .
-- 4. run `npm install` in both folder separately to install the dependencies
-- 5. in server, create a .env file and add ur keys `PORT=3000
+1. clone the repository using : `git clone https://github.com/gunjan1909/react-stream-chatapp.git`
+2. cd into the directory: `cd react-stream-chatapp`
+3. cd into the client and server separately for running the backend server and frontend client .
+4. run `npm install` in both folder separately to install the dependencies
+5. in server, create a .env file and add ur keys `PORT=3000
 CLIENT_URL=http://localhost:5173
 STREAM_API_KEY=YOUR_KEY
 STREAM_PRIVATE_API_KEY=YOUR_PRIV_KEY`
-- 6. in client, create a .env file and add ur keys `VITE_SERVER_URL = http://[::1]:3000
+
+6. in client, create a .env file and add ur keys `VITE_SERVER_URL = http://[::1]:3000
 VITE_STREAM_API_KEY=YOUR_KEY`
-- 7. run both server and client using npm run dev command and start the application, server starts on port `3000` and vite react application starts on port `5173`
+7. run both server and client using npm run dev command and start the application, server starts on port `3000` and vite react application starts on port `5173`
 
 ## Project Structure(for personal documentation):
 
