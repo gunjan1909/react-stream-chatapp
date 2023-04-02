@@ -97,5 +97,5 @@ Has the routes for client, what all element and layout to show at the particular
 - Add proper comments in all files(home.tsx, new.tsx) for understanding the workflow and review project structure
 - Renew env variables and api keys with new stream account once expired
 - Test entire application with multiple users and media/images
-- Work on deployment
+- ### Work on deployment
 - Review Tanstack query docs
