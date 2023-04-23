@@ -55,7 +55,7 @@ Starting file, Queryclinet and Router added in root of App
 
 #### ./src/router.tsx:
 
-Has the routes for client, what all element and layout to show at the particular route withing the layout, authlayout for login and signup, rootlayout for home and channel and chats, all wrapped inside the contextwrapper which is just the authprovider context(logged in, user, streamchat context) with outlet(display child element for route within route ie nested routes)
+Has the routes for client, what all element and layout to show at the particular route within the layout, authlayout for login and signup, rootlayout for home and channel and chats, all wrapped inside the contextwrapper which is just the authprovider context(logged in, user, streamchat context) with outlet(display child element for route within route ie nested routes)
 
 #### ./src/components folder
 

@@ -88,8 +88,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     },
   });
 
+  //set up a connection to Stream Chat API using the useEffect hook and the provided user and token props. It ensures that the connection is only set up once and that the cleanup function disconnects the user from Stream Chat API whenever the user and token props change.
   useEffect(() => {
-    console.log("AuthContext Useeffect");
+    //console.log("AuthContext Useeffect");
     if (token == null || user == null) return;
     const chat = new StreamChat(import.meta.env.VITE_STREAM_API_KEY!);
 
