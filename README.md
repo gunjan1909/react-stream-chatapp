@@ -4,7 +4,7 @@
 
 Simple channel based chat application made in Typescript using Vite React Nodejs and Stream and Fastify.
 
-NOTE:- Stream API is used which is only free for few days.
+NOTE:- Stream API is not free(free trial used for development).
 
 ### Technologies Used:
 
@@ -28,18 +28,18 @@ NOTE:- Stream API is used which is only free for few days.
 
 ### Get Started:
 
-1. clone the repository using : `git clone https://github.com/gunjan1909/react-stream-chatapp.git`
+1. Clone the repository using : `git clone https://github.com/gunjan1909/react-stream-chatapp.git`
 2. cd into the directory: `cd react-stream-chatapp`
 3. cd into the client and server separately for running the backend server and frontend client .
-4. run `npm install` in both folder separately to install the dependencies
-5. in server, create a .env file and add ur keys `PORT=3000
+4. Run `npm install` in both folder separately to install the dependencies
+5. In server, create a .env file and add ur keys `PORT=3000
 CLIENT_URL=http://localhost:5173
 STREAM_API_KEY=YOUR_KEY
 STREAM_PRIVATE_API_KEY=YOUR_PRIV_KEY`
 
-6. in client, create a .env file and add ur keys `VITE_SERVER_URL = http://[::1]:3000
+6. In client, create a .env file and add ur keys `VITE_SERVER_URL = http://[::1]:3000
 VITE_STREAM_API_KEY=YOUR_KEY`
-7. run both server and client using npm run dev command and start the application, server starts on port `3000` and vite react application starts on port `5173`
+7. Run both server and client using npm run dev command and start the application, server starts on port `3000` and vite react application starts on port `5173`
 
 ## Project Structure(for personal documentation):
 
@@ -89,13 +89,11 @@ Has the routes for client, what all element and layout to show at the particular
 
 ### Server(nodejs fastify backend server):
 
-- #### server.ts: create the fastify/express app, register with the cors and start the app on the port.
-- #### routes/users.ts: all the routes: post request on /signup route, post request on /login route and return the user details, post request on /logout and logging user out deleting the chat instance
+- server.ts: create the fastify/express app, register with the cors and start the app on the port.
+- routes/users.ts: all the routes: post request on /signup route, post request on /login route and return the user details, post request on /logout and logging user out deleting the chat instance
 
 #### TO DO:
 
 - Add proper comments in all files(home.tsx, new.tsx) for understanding the workflow and review project structure
 - Renew env variables and api keys with new stream account once expired
-- Test entire application with multiple users and media/images
-- ### Work on deployment
 - Review Tanstack query docs
