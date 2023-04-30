@@ -5,7 +5,7 @@ import fastify from "fastify";
 import cors from "@fastify/cors";
 import { userRoutes } from "./routes/users";
 
-//create new fastify app
+//create new fastify app(same as express)
 const app = fastify();
 
 // register the client url with cors

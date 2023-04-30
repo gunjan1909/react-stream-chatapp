@@ -23,7 +23,7 @@ export async function userRoutes(app: FastifyInstance) {
     if (id == null || id === "" || name == null || name === "") {
       return res.status(400).send();
     }
-
+    //check if user already exists
     const existingUser = await streamChat.queryUsers({ id });
     if (existingUser.users.length > 0) {
       return res
@@ -48,7 +48,6 @@ export async function userRoutes(app: FastifyInstance) {
       users: [user],
     } = await streamChat.queryUsers({ id });
     if (user == null) return res.status(401).send();
-
     const token = streamChat.createToken(id);
     TOKEN_USER_ID_MAP.set(token, user.id);
 
