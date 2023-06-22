@@ -4,7 +4,7 @@
 
 Simple channel based chat application made in Typescript using Vite React Nodejs and Stream and Fastify.
 
-NOTE:- Stream API is not free(free trial used for development).
+NOTE:- Stream API is not free(free trial used for development)(SERVICE STOPPED/FREE TRIAL ENDED).
 
 ### Technologies Used:
 
